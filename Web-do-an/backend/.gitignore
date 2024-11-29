@@ -1,0 +1,6 @@
+*.log
+*.tmp
+*.rar
+$RECYCLE.BIN/
+pagefile.sys
+
