@@ -1,0 +1,104 @@
+/* Tổng quan bảng */
+.list-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Định dạng từng hàng */
+  .list-table-format {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border-bottom: 1px solid #cacaca;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Tiêu đề bảng */
+  .list-table-format.title {
+    background-color: #f9f9f9;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-top: 2px solid #d4d4d4;
+    border-bottom: 2px solid #d4d4d4;
+  }
+  
+  /* Hover khi di chuột */
+  .list-table-format:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Hình ảnh sản phẩm */
+  .list-table-format img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Nút tương tác */
+  .cursor {
+    cursor: pointer;
+    font-size: 16px;
+    color: #ff4d4f;
+    font-weight: bold;
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+  
+  .cursor:hover {
+    color: #d63031;
+  }
+  
+  /* Responsive: Mobile */
+  @media (max-width: 600px) {
+    .list-table-format {
+      grid-template-columns: 1fr 3fr 1fr; /* Chỉ hiển thị ảnh, tên, thao tác */
+      gap: 15px;
+      padding: 10px;
+    }
+  
+    .list-table-format.title {
+      display: none; /* Ẩn tiêu đề trên màn hình nhỏ */
+    }
+  
+    .list-table-format img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .cursor {
+      font-size: 14px;
+    }
+  }
+  
+  /* Nút lưu và hủy chỉnh sửa */
+  .list-table-format button {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .list-table-format button:hover {
+    opacity: 0.9;
+  }
+  
+  .list-table-format button:first-of-type {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .list-table-format button:last-of-type {
+    background-color: #f44336;
+    color: white;
+  }
+  
