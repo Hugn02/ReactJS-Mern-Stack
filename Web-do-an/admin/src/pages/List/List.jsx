@@ -108,13 +108,17 @@ const List = ({ url }) => {
                     setEditingProduct({ ...editingProduct, name: e.target.value })
                   }
                 />
-                <input
-                  type="text"
+                <select
+                  
                   value={editingProduct.category}
                   onChange={(e) =>
                     setEditingProduct({ ...editingProduct, category: e.target.value })
                   }
-                />
+                  >
+                  <option value="Motor Nuclear">motornuclear</option>
+            <option value="Inera">inera</option>
+            <option value="Moshow">moshow</option>
+                  </select>
                 <input
                   type="number"
                   value={editingProduct.old_price}

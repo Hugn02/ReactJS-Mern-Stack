@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 const Add = ({ url }) => {
   const [data, setData] = useState({
     name: '',
-    category: 'Motor Nuclear',
+    category: 'motornuclear',
     old_price: '',
     new_price: '',
     sizes: [],
@@ -73,7 +73,7 @@ const Add = ({ url }) => {
       if (response.data.success) {
         setData({
           name: '',
-          category: 'Motor Nuclear',
+          category: 'motornuclear',
           old_price: '',
           new_price: '',
           sizes: [],
@@ -126,9 +126,9 @@ const Add = ({ url }) => {
             value={data.category}
             onChange={onChangeHandler}
           >
-            <option value="Motor Nuclear">Motor Nuclear</option>
-            <option value="Inera">Inera</option>
-            <option value="Moshow">Moshow</option>
+            <option value="motornuclear">motornuclear</option>
+            <option value="inera">inera</option>
+            <option value="moshow">moshow</option>
           </select>
         </div>
         <div className="add-product-price">
@@ -139,7 +139,7 @@ const Add = ({ url }) => {
               name="old_price"
               value={data.old_price}
               onChange={onChangeHandler}
-              placeholder="$50"
+              placeholder="$0"
               required
             />
           </div>
@@ -150,7 +150,7 @@ const Add = ({ url }) => {
               name="new_price"
               value={data.new_price}
               onChange={onChangeHandler}
-              placeholder="$50"
+              placeholder="$0"
               required
             />
           </div>
