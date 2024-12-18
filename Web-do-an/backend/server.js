@@ -4,6 +4,7 @@ import { connectDB } from './config/db.js';
 import productRouter from './routes/productRoute.js';
 import userRouter from './routes/userRoute.js';
 import 'dotenv/config'
+import cartRouter from './routes/cartRoute.js';
 
 // App config
 const app = express();
@@ -20,6 +21,7 @@ connectDB();
 app.use("/api/product", productRouter);
 app.use("images",express.static('uploads'));
 app.use("/api/user",userRouter)
+app.use("/api/cart",cartRouter);
 
 // Default route
 app.get("/", (req, res) => {
