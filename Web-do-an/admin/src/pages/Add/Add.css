@@ -36,7 +36,8 @@
 
 .add-product-name textarea,
 .add-price input,
-.add-category select {
+.add-category select,
+.add-img-upload input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -47,7 +48,8 @@
 
 .add-product-name textarea:focus,
 .add-price input:focus,
-.add-category select:focus {
+.add-category select:focus,
+.add-img-upload input:focus {
     border-color: #007bff;
     outline: none;
 }
