@@ -576,18 +576,20 @@
     ]
   },
   {
-    "_id": "675d4af815aded3399bce4ab",
-    "name": "panda",
-    "category": "moshow",
-    "old_price": 150,
+    "_id": "676e8c1bfab12a6aea564990",
+    "name": "test",
+    "category": "motornuclear",
+    "old_price": 100,
     "new_price": 60,
     "sizes": [
       "SD",
       "HG",
-      "RG"
+      "RG",
+      "MG",
+      "PG"
     ],
-    "image": "https://www.bing.com/th?id=OIP.FCiNSgcZx_taukbTZRBtBAHaE8&w=144&h=100&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+    "image": "https://th.bing.com/th/id/OIP.IDq8cZVcGfgwgkR1Bt0RywHaEo?w=257&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     "__v": 0,
-    "id": "675d4af815aded3399bce4ab"
+    "id": "676e8c1bfab12a6aea564990"
   }
 ]

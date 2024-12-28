@@ -12,7 +12,7 @@ const createOrder = async (req, res) => {
             customer,
             items,
             totalAmount,
-            status: "Product Processing",
+            status: "Đơn hàng đang được xử lý",
         });
 
         res.status(201).json({ success: true, order: newOrder });
@@ -34,4 +34,26 @@ const userOrders = async (req, res) => {
     }
 }
 
-export {createOrder,userOrders}
+//Order admin panel
+const listOrders = async (req,res) => {
+    try {
+        const orders = await OrderModel.find({});
+        res.json({ success: true, data:orders });
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message:"Error"});
+    }
+}
+
+//api for update order status
+const updateStatus = async (req, res) => {
+    try {
+        await OrderModel.findByIdAndUpdate(req.body.orderId,{status:req.body.status});
+        res.json({ success: true, message: "Cập nhật trạng thái thành công"});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Error"})
+    }
+}
+
+export {createOrder,userOrders,listOrders,updateStatus}
