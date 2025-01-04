@@ -55,7 +55,9 @@
   .cursor:hover {
     color: #d63031;
   }
-  
+  .list-table-format button{
+    margin-right: 10px;
+  }
   /* Responsive: Mobile */
   @media (max-width: 600px) {
     .list-table-format {

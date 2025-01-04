@@ -94,6 +94,8 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-right: 700px;
+    margin-left: 700px;
 }
 
 .add-btn:hover {

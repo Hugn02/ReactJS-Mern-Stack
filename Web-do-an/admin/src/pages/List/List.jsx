@@ -115,9 +115,9 @@ const List = ({ url }) => {
                     setEditingProduct({ ...editingProduct, category: e.target.value })
                   }
                   >
-                  <option value="Motor Nuclear">motornuclear</option>
-            <option value="Inera">inera</option>
-            <option value="Moshow">moshow</option>
+                  <option value="motornuclear">motornuclear</option>
+                  <option value="inera">inera</option>
+                  <option value="moshow">moshow</option>
                   </select>
                 <input
                   type="number"
