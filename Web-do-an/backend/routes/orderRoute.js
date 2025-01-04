@@ -5,8 +5,8 @@ import authMiddleware from "../middleware/auth.js";
 const orderRouter = express.Router();
 
 // Route để tạo đơn hàng
-orderRouter.post("/create", createOrder);
-orderRouter.post("/userorders", userOrders);
+orderRouter.post("/create",authMiddleware, createOrder);
+orderRouter.post("/userorders",authMiddleware, userOrders);
 orderRouter.get("/listorders", listOrders);
 orderRouter.post("/status", updateStatus)
 

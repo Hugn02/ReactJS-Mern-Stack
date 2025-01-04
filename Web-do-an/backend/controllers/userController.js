@@ -66,5 +66,47 @@ const registerUser = async (req,res) => {
         res.json({success: false, message:"Error"})
     }
 }
+// Lấy thông tin người dùng
+const getUserInfo = async (req, res) => {
+    try {
+        const user = await userModel.findById(req.body.userId).select("-password");
+        if (!user) {
+            return res.status(404).json({ success: false, message: "Người dùng không tồn tại" });
+        }
+        res.status(200).json({ success: true, user });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, message: "Lỗi server" });
+    }
+};
+// Đổi mật khẩu người dùng
+const changePassword = async (req, res) => {
+    const { oldPassword, newPassword } = req.body;
+    try {
+        const user = await userModel.findById(req.body.userId);
 
-export { loginUser, registerUser}
+        if (!user) {
+            return res.status(404).json({ success: false, message: "Người dùng không tồn tại" });
+        }
+
+        const isMatch = await bcrypt.compare(oldPassword, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ success: false, message: "Mật khẩu cũ không đúng" });
+        }
+
+        if (newPassword.length < 8) {
+            return res.status(400).json({ success: false, message: "Mật khẩu mới phải có ít nhất 8 ký tự" });
+        }
+
+        const salt = await bcrypt.genSalt(10);
+        user.password = await bcrypt.hash(newPassword, salt);
+        await user.save();
+
+        res.status(200).json({ success: true, message: "Đổi mật khẩu thành công" });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ success: false, message: "Lỗi server" });
+    }
+};
+
+export { loginUser, registerUser, getUserInfo, changePassword}

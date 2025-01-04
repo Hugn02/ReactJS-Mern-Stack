@@ -576,11 +576,11 @@
     ]
   },
   {
-    "_id": "676e8c1bfab12a6aea564990",
-    "name": "test",
+    "_id": "6778e5a99b6dcc8acd9c7e96",
+    "name": "tét update",
     "category": "motornuclear",
-    "old_price": 100,
-    "new_price": 60,
+    "old_price": 110,
+    "new_price": 90,
     "sizes": [
       "SD",
       "HG",
@@ -588,8 +588,7 @@
       "MG",
       "PG"
     ],
-    "image": "https://th.bing.com/th/id/OIP.IDq8cZVcGfgwgkR1Bt0RywHaEo?w=257&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-    "__v": 0,
-    "id": "676e8c1bfab12a6aea564990"
+    "image": "https://th.bing.com/th/id/OIP.GPFEY6kfgxbsja6gmrW6rwHaE7?w=263&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+    "__v": 0
   }
 ]

@@ -2,13 +2,14 @@ import OrderModel from "../models/orderModel.js";
 
 const createOrder = async (req, res) => {
     try {
-        const { customer, items, totalAmount } = req.body;
+        const {userId, customer, items, totalAmount } = req.body;
 
-        if (!customer || !items || items.length === 0) {
+        if (!userId || !customer || !items || items.length === 0) {
             return res.status(400).json({ success: false, message: "Dữ liệu không đầy đủ" });
         }
 
         const newOrder = await OrderModel.create({
+            userId,
             customer,
             items,
             totalAmount,
