@@ -3,25 +3,28 @@ import reviewModel from "../models/reviewModel.js";
 const addReview = async (req, res) => {
   try {
     const { productId, rating, comment } = req.body;
+    const userId = req.body.userId; // Lấy từ token
 
-    if (!req.body.userId) {
-      return res.status(401).json({ success: false, message: "User not authenticated" });
+    if (!productId || !rating || !comment) {
+        return res.status(400).json({ success: false, message: "Thiếu dữ liệu đầu vào." });
     }
 
-    const newReview = new reviewModel({
-      productId,
-      userId: req.body.userId,
-      rating,
-      comment,
-    });
+    // Thêm đánh giá cho từng sản phẩm
+    const reviews = productId.map((productId) => ({
+        userId,
+        productId,
+        rating,
+        comment,
+        createdAt: new Date(),
+    }));
 
-    await newReview.save();
+    await reviewModel.insertMany(reviews);
 
-    res.status(201).json({ success: true, message: "Đánh giá đã được thêm" });
-  } catch (error) {
-    console.error("Error adding review:", error.message);
-    res.status(500).json({ success: false, message: "Error adding review" });
-  }
+    res.json({ success: true, message: "Đánh giá thành công!" });
+} catch (error) {
+    console.error("Error in /api/review/add:", error);
+    res.status(500).json({ success: false, message: "Lỗi máy chủ." });
+}
 };
 const getReviewsByProductId = async (req, res) => {
   const { productId } = req.params;
