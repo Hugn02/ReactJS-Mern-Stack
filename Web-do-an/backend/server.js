@@ -7,6 +7,7 @@ import 'dotenv/config'
 import cartRouter from './routes/cartRoute.js';
 import orderRouter from './routes/orderRoute.js';
 import reviewRouter from './routes/reviewRoute.js';
+import adminRouter from './routes/adminRoute.js';
 
 // App config
 const app = express();
@@ -26,6 +27,7 @@ app.use("/api/user",userRouter)
 app.use("/api/cart",cartRouter);
 app.use("/api/order",orderRouter);
 app.use("/api/review", reviewRouter);
+app.use("/api/admin", adminRouter);
 // Default route
 app.get("/", (req, res) => {
     res.send("API đang hoạt động");
