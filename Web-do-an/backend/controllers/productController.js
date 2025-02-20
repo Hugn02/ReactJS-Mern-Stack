@@ -2,6 +2,16 @@ import productModel from "../models/productModel.js";
 import fs from "fs";
 import mongoose from "mongoose";
 
+export const getProductsByBrand = async (req, res) => {
+    try {
+        const { brand } = req.params;
+        const products = await productModel.find({ category: brand });
+
+        res.json({ success: true, data: products });
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Lỗi khi lấy sản phẩm theo hãng" });
+    }
+};
 // Thêm sản phẩm
 const addProduct = async (req, res) => {
     try {
