@@ -1,0 +1,116 @@
+.manage-brands {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px; 
+}
+
+.manage-brands h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Form thêm hãng sản phẩm */
+.brand-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.brand-form input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.brand-form button {
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.brand-form button:hover {
+    background: #218838;
+}
+
+/* Danh sách hãng sản phẩm */
+.brand-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.brand-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: 0.3s;
+}
+
+.brand-item:hover {
+    background: #e9ecef;
+}
+
+/* Tên hãng sản phẩm */
+.brand-item p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+/* Nút thao tác */
+.brand-item button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.brand-item button:nth-child(2) {
+    color: #007bff; /* Màu xanh dương (chỉnh sửa) */
+}
+
+.brand-item button:nth-child(2):hover {
+    color: #0056b3;
+}
+
+.brand-item button:nth-child(3) {
+    color: #dc3545; /* Màu đỏ (xóa) */
+}
+
+.brand-item button:nth-child(3):hover {
+    color: #a71d2a;
+}
+
+/* Ô input khi chỉnh sửa */
+.brand-item input {
+    flex: 1;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .manage-brands {
+        max-width: 90%;
+    }
+}

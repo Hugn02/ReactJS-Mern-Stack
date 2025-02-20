@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Add.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -12,6 +12,24 @@ const Add = ({ url }) => {
     sizes: [],
     image: '', // Lưu URL ảnh
   });
+
+  const [brands, setBrands] = useState([]);
+
+const fetchBrands = async () => {
+  try {
+    const response = await axios.get(`${url}/api/brands/list`);
+    if (response.data.success) {
+      setBrands(response.data.data);
+    }
+  } catch (error) {
+    toast.error("Lỗi khi tải danh sách hãng sản phẩm");
+  }
+};
+
+useEffect(() => {
+  fetchBrands();
+}, []);
+
 
   const [loading, setLoading] = useState(false); // Trạng thái loading
 
@@ -121,11 +139,10 @@ const Add = ({ url }) => {
         </div>
         <div className="add-category flex-col">
           <p>Hãng sản phẩm</p>
-          <select
-            name="category"
-            value={data.category}
-            onChange={onChangeHandler}
-          >
+          <select name="category" value={data.category} onChange={onChangeHandler}>
+  {brands.map((brand) => (
+    <option key={brand._id} value={brand.name}>{brand.name}</option>
+  ))}
             <option value="motornuclear">motornuclear</option>
             <option value="inera">inera</option>
             <option value="moshow">moshow</option>
