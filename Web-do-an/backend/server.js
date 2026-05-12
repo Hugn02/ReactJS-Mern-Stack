@@ -17,10 +17,7 @@ const port = process.env.PORT || 4000;
 // Middleware
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://web-react-js-front-end.vercel.app",
-    ],
+    origin: true,
     credentials: true,
   }),
 );
