@@ -15,7 +15,15 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://web-react-js-front-end.vercel.app",
+    ],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 // DB connection
