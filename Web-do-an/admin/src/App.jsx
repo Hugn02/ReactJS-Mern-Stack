@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import Navbar from './components/Navbar/Navbar';
-import Sidebar from './components/Sidebar/Sidebar';
-import { Route, Routes, Navigate } from 'react-router-dom';
-import Orders from './pages/Orders/Orders';
-import Add from './pages/Add/Add';
-import List from './pages/List/List';
-import Login from './pages/Login/Login'; // Trang đăng nhập admin
-import Brand from './pages/Brand/ManageBrands'; 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import Sidebar from "./components/Sidebar/Sidebar";
+import { Route, Routes, Navigate } from "react-router-dom";
+import Orders from "./pages/Orders/Orders";
+import Add from "./pages/Add/Add";
+import List from "./pages/List/List";
+import Login from "./pages/Login/Login"; // Trang đăng nhập admin
+import Brand from "./pages/Brand/ManageBrands";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  const url = "http://localhost:4000";
+  const url = import.meta.env.VITE_API_URL || "http://localhost:4000";
   const [isAuthenticated, setIsAuthenticated] = useState(false); // Trạng thái xác thực
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const App = () => {
           <div className="app-content">
             <Sidebar />
             <Routes>
-            <Route path="/brand" element={<Brand url={url} />} />
+              <Route path="/brand" element={<Brand url={url} />} />
               <Route path="/add" element={<Add url={url} />} />
               <Route path="/list" element={<List url={url} />} />
               <Route path="/orders" element={<Orders url={url} />} />
@@ -43,7 +43,10 @@ const App = () => {
         </>
       ) : (
         <Routes>
-          <Route path="/login" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
+          <Route
+            path="/login"
+            element={<Login onLogin={() => setIsAuthenticated(true)} />}
+          />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       )}
