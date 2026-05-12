@@ -10,7 +10,7 @@ import reviewRouter from "./routes/reviewRoute.js";
 import adminRouter from "./routes/adminRoute.js";
 import brandRouter from "./routes/brandRoute.js";
 
-// App config
+// App configuration
 const app = express();
 const port = process.env.PORT || 4000;
 
