@@ -1,4 +1,6 @@
 import express from "express";
+import fs from "fs";
+import path from "path";
 import cors from "cors";
 import { connectDB } from "./config/db.js";
 import productRouter from "./routes/productRoute.js";
@@ -13,6 +15,12 @@ import brandRouter from "./routes/brandRoute.js";
 // App configuration
 const app = express();
 const port = process.env.PORT || 4000;
+
+// Tự động tạo thư mục 'uploads' nếu chưa tồn tại (quan trọng khi chạy trên Render)
+const uploadDir = 'uploads';
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
 
 // Middleware
 app.use(
